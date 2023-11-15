@@ -1,0 +1,33 @@
+diff --git a/spacewalk-usix.spec b/spacewalk-usix.spec
+index ce9df24..2bf8720 100644
+--- a/spacewalk-usix.spec
++++ b/spacewalk-usix.spec
+@@ -18,7 +18,7 @@
+ 
+ Name:	    spacewalk-usix
+ Version:	2.8.1
+-Release:	3%{?dist}
++Release:	4%{?dist}
+ Summary:	Spacewalk server and client nano six library
+ 
+ License:	GPLv2
+@@ -76,6 +76,8 @@ cp $RPM_BUILD_ROOT%{pythonrhnroot}/common/usix.py $RPM_BUILD_ROOT%{python3rhnroo
+ 
+ %clean
+ 
++%files
++
+ %files -n python2-%{name}
+ %dir %{pythonrhnroot}
+ %dir %{pythonrhnroot}/common
+@@ -101,6 +103,10 @@ cp $RPM_BUILD_ROOT%{pythonrhnroot}/common/usix.py $RPM_BUILD_ROOT%{python3rhnroo
+ %endif
+ 
+ %changelog
++* Thu Mar 01 2018 Tomas Kasparek <tkasparek@redhat.com> 2.8.1-4
++- empty %%files section is required for a package to build as a metapackage
++  (tkasparek@redhat.com)
++
+ * Wed Feb 28 2018 Tomas Kasparek <tkasparek@redhat.com> 2.8.1-3
+ - split spacewalk-usix into python2 and python3 variants (tkasparek@redhat.com)
+ - build python3-spacewalk-usix also on rhel8 (tkasparek@redhat.com)
